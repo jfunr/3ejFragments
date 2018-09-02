@@ -1,5 +1,6 @@
 package com.jrubenfun.a3ejfragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +63,8 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.support.v7.widget.RecyclerView.*;
 
 
 /**
@@ -77,6 +81,8 @@ public class FragmentGrid extends Fragment {
     RecyclerView listaMascotas;
     ArrayList<Mascota> topFiveMascotas;
 
+    public RecyclerView.ViewHolder holder;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -85,15 +91,13 @@ public class FragmentGrid extends Fragment {
 
         listaMascotas = (RecyclerView) v2.findViewById(R.id.rvListaMascotas);
 
-        int numberOfColumns = 6;
-//        listaMascotas.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
+        int numberOfColumns = 3;
 
-        //LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        //llm.setOrientation(LinearLayoutManager.VERTICAL);
 
-        GridLayoutManager glm = new GridLayoutManager(getActivity(),3);
-        //glm.setOrientation(GridLayoutManager.HORIZONTAL);
 
+
+
+        GridLayoutManager glm = new GridLayoutManager(getActivity(),numberOfColumns);
 
         listaMascotas.setLayoutManager(glm);
 

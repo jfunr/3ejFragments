@@ -72,12 +72,14 @@
 
 
         <Button
-            android:id="@+id/bt_launch_activity"
+            android:id="@+id/enviar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/boton_envio"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+
+            />
 
     </LinearLayout>
 

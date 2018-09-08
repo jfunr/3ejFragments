@@ -79,9 +79,6 @@ public class FragmentGrid extends Fragment {
 
     ArrayList<Mascota> mascotas;
     RecyclerView listaMascotas;
-    ArrayList<Mascota> topFiveMascotas;
-
-    public RecyclerView.ViewHolder holder;
 
     @Nullable
     @Override
@@ -89,17 +86,16 @@ public class FragmentGrid extends Fragment {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View v2=inflater.inflate(R.layout.fragment_grid,container,false);
 
-        listaMascotas = (RecyclerView) v2.findViewById(R.id.rvListaMascotas);
+        listaMascotas = v2.findViewById(R.id.rvListaMascotas);
+
+        listaMascotas.setHasFixedSize(true);
 
         int numberOfColumns = 3;
-
-
-
-
 
         GridLayoutManager glm = new GridLayoutManager(getActivity(),numberOfColumns);
 
         listaMascotas.setLayoutManager(glm);
+
 
         inicializarMascotas();
         inicializarAdaptador();
@@ -124,3 +120,26 @@ public class FragmentGrid extends Fragment {
         listaMascotas.setAdapter(adaptador);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,7 +3,6 @@ package com.jrubenfun.a3ejfragments;
 import java.security.Provider;
 import java.security.AccessController;
 
-
 public class JSSEProvider extends Provider {
 
     public JSSEProvider() {

@@ -1,4 +1,4 @@
-package com.jrubenfun.a3ejfragments;
+package com.jrubenfun.a3ejfragments.pojo;
 
 public class Mascota {
     private int foto;

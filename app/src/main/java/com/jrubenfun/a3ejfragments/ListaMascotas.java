@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.jrubenfun.a3ejfragments.pojo.Mascota;
+
 import java.util.ArrayList;
 
 public class ListaMascotas extends AppCompatActivity {
@@ -48,7 +50,7 @@ public class ListaMascotas extends AppCompatActivity {
 
     public void crearTopFive(){
 
-        topFiveMascotas = new ArrayList<Mascota>();
+        topFiveMascotas = new ArrayList<>();
 
         for (int i=0;i<5;i++){
             //Log.v("Caso",topNombres[i]+" "+topRates[i]);

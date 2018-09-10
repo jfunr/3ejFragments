@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jrubenfun.a3ejfragments.pojo.Mascota;
+
 import java.util.ArrayList;
 
 public class FragmentMain extends Fragment {
@@ -25,7 +27,7 @@ public class FragmentMain extends Fragment {
 
         View v=inflater.inflate(R.layout.fragment_main,container,false);
 
-        listaMascotas = (RecyclerView) v.findViewById(R.id.rvListaMascotas);
+        listaMascotas =  v.findViewById(R.id.rvListaMascotas);
 
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -41,7 +43,7 @@ public class FragmentMain extends Fragment {
     }
 
     public void inicializarMascotas(){
-        mascotas = new ArrayList<Mascota>();
+        mascotas = new ArrayList<>();
 
         mascotas.add(new Mascota(R.drawable.perro1,"john","31"));
         mascotas.add(new Mascota(R.drawable.perro2,"happy","23"));

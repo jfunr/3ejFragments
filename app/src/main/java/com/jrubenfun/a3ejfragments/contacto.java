@@ -50,7 +50,7 @@ public class contacto extends AppCompatActivity {
             public void onClick(View view) {
                 try
                 {
-                    Gmail sender=new Gmail("jfuntre@gmail.com","qastep19");
+                    Gmail sender=new Gmail("jfuntre@gmail.com","nan");
                     sender.sendMail("Ne","nan","jfuntre@gmail.com","dariifly@ymail.com");
                     Toast.makeText(contacto.this, "El mensaje se ha enviado...", Toast.LENGTH_LONG).show();
 

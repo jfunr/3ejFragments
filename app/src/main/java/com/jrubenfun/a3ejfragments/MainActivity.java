@@ -5,8 +5,6 @@ import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -14,16 +12,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
-import android.widget.TextView;
+
+import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
 import java.util.ArrayList;
 
@@ -34,15 +30,13 @@ public class MainActivity extends AppCompatActivity {
     ImageButton starButton;
     int indices[] = new int[5];
     ArrayList<Mascota> topFiveMascotas;
-    String[] topNombres = new String[5];;
+    String[] topNombres = new String[5];
     String[] topRates = new String[5];
     int topFoto[] = new int[5];
 
     public Toolbar toolbar;
     public TableLayout tableLayout;
     public ViewPager viewPager;
-
-
 
 
     /**
@@ -65,42 +59,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager =  findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        /*********
-         *
-         *
-         */
 
-//        LinearLayoutManager llm = new LinearLayoutManager(this);
-  //      llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-//        listaMascotas.setLayoutManager(llm);
-        //mViewPager.setLayoutMode(llm);
-
-
-
-  //      inicializarMascotas();
-    //    inicializarAdaptador();
-
-
-
-
-        /********
-         *
-         *
-         */
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout =  findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
@@ -164,10 +134,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            //return PlaceholderFragment.newInstance(position + 1);
-
 
             switch (position)
             {

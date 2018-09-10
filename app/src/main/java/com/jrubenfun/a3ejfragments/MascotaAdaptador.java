@@ -8,10 +8,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.jrubenfun.a3ejfragments.pojo.Mascota;
+
 import java.util.ArrayList;
 
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
-    ArrayList<Mascota> mascotas;
+    public ArrayList<Mascota> mascotas;
 
 
     public MascotaAdaptador(ArrayList<Mascota> mascotas) {

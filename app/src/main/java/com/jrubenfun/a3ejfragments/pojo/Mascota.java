@@ -34,4 +34,6 @@ public class Mascota {
     public void setRate(String rate) {
         this.rate = rate;
     }
+
+    public Mascota(){}
 }

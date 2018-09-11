@@ -1,5 +1,7 @@
 package com.jrubenfun.a3ejfragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInstaller;
 import android.net.MailTo;
 import android.os.AsyncTask;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.FileOutputStream;
 import java.security.Security;
 import java.util.Properties;
 
@@ -67,6 +70,56 @@ public class contacto extends AppCompatActivity {
 
 
     }
+
+
+    //****************************************************************
+
+    //este metodo genera el archivo
+
+
+    public void generarArchivo(View view)
+    {
+        try
+        {
+            EditText nombre=(EditText) findViewById(R.id.maname);
+            String nombre1=nombre.getText().toString();
+
+            EditText email=(EditText) findViewById(R.id.maemail);
+            String email1=email.getText().toString();
+
+            EditText descripcion=(EditText) findViewById(R.id.madescripcion);
+            String descripcion1=descripcion.getText().toString();
+
+            String comma=",";
+
+            FileOutputStream outputStream=null;
+
+            outputStream=openFileOutput("data.txt", Context.MODE_APPEND);
+            outputStream.write(nombre1.getBytes());
+
+            outputStream.write(comma.getBytes());
+
+            outputStream.write(email1.getBytes());
+
+            outputStream.write(comma.getBytes());
+
+            outputStream.write(descripcion1.getBytes());
+
+            outputStream.write(comma.getBytes());
+
+            Toast.makeText(contacto.this, "El archivo se ha creado", Toast.LENGTH_LONG).show();
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            Toast.makeText(contacto.this, "Algo fallo", Toast.LENGTH_LONG).show();
+
+        }
+
+    }
+
+
 
 }
 

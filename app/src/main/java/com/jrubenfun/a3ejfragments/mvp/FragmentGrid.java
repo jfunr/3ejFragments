@@ -1,4 +1,4 @@
-package com.jrubenfun.a3ejfragments;
+package com.jrubenfun.a3ejfragments.mvp;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +13,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import com.jrubenfun.a3ejfragments.MascotaAdaptador;
+import com.jrubenfun.a3ejfragments.R;
 import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
 

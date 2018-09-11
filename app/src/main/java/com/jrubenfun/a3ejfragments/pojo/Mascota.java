@@ -9,6 +9,7 @@ public class Mascota {
         this.foto = foto;
         this.nombre = nombre;
         this.rate = rate;
+
     }
 
     public int getFoto() {

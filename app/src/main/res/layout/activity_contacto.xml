@@ -80,6 +80,18 @@
 
             />
 
+        <Button
+            android:id="@+id/guardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+
+            android:text="@string/boton_guardar"
+            android:textSize="18sp"
+
+            android:onClick="generarArchivo"
+            />
+
     </LinearLayout>
 
 

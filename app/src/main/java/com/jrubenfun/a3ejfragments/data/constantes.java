@@ -1,7 +1,7 @@
 package com.jrubenfun.a3ejfragments.data;
 
 public final class constantes {
-    public static final String dataName = "mascotas";
+    public static final String dataName = "mascotas.db";
     public static final int dataVersion = 1;
 
     public static final String tablaMascota            = "mascota";

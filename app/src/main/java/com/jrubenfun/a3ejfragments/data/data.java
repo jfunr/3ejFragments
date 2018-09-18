@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class data extends SQLiteOpenHelper {
     private Context context;
-    ArrayList<Mascota> mascotas;
+    private ArrayList<Mascota> mascotas;
 
     //*********************************
 
@@ -31,7 +31,7 @@ public class data extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String tablaMascota="CREATE TABLE "+constantes.dataName+
+        String tablaMascota="CREATE TABLE "+constantes.tablaMascota+
                 "("+
                 constantes.tablaMascotaid       +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 constantes.tablaMascotaFoto    +" TEXT, "+
@@ -72,22 +72,23 @@ public class data extends SQLiteOpenHelper {
         mascotas = new ArrayList<>();
 
         String query="SELECT * FROM'"+constantes.tablaMascota+"'";
-        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        Cursor registro= sqLiteDatabase.rawQuery(query,null);
+        try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
+            Cursor registro = sqLiteDatabase.rawQuery(query, null);
 
-        while (registro.moveToNext()){
-            Mascota mascotaActual=new Mascota();
+            while (registro.moveToNext()) {
+                Mascota mascotaActual = new Mascota();
 
-            //mascotaActual.setFoto();
-            mascotaActual.setNombre(registro.getString(0));
-            mascotaActual.setRate(registro.getString(1));
+                //mascotaActual.setFoto();
+                mascotaActual.setNombre(registro.getString(0));
+                mascotaActual.setRate(registro.getString(1));
 
-            mascotas.add(mascotaActual);
+                mascotas.add(mascotaActual);
 
 
+            }
+
+            sqLiteDatabase.close();
         }
-
-        sqLiteDatabase.close();
 
         return mascotas;
     }

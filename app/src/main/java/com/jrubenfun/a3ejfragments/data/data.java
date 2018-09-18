@@ -17,7 +17,7 @@ public class data extends SQLiteOpenHelper {
 
     //*********************************
 
-    //constructor
+    //constructor method that crate the db
 
     public data(Context context) {
         super(context, constantes.dataName, null, constantes.dataVersion);
@@ -26,16 +26,17 @@ public class data extends SQLiteOpenHelper {
 
     //*************************************
 
-    //create structure for the data
+    //method to create the query
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String tablaMascota="CREATE TABLE "+constantes.tablaMascota+
+        String tablaMascota="CREATE TABLE "+constantes.dataName+
                 "("+
-                constantes.tablaMascotaid       +" PRIMARY KEY AUTOINCREMENT, "+
-                constantes.tablaMacotaNombre    +" TEXT "+
+                constantes.tablaMascotaid       +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                constantes.tablaMascotaFoto    +" TEXT, "+
 
+                constantes.tablaMacotaNombre    +" TEXT "+
 
                 ")";
 
@@ -44,10 +45,11 @@ public class data extends SQLiteOpenHelper {
 
         String tablaLikes="CREATE TABLE "+constantes.tablalike+
                 "("+
-                constantes.tablalikeid       +" PRIMARY KEY AUTOINCREMENT, "+
-                constantes.tablalikeNombre    +" TEXT, "+
-                constantes.tablalikeNumero    +" INTEGER, "+
-                "FOREIGN KEY (" + constantes.tablalikeid  + ") " +
+                constantes.tablalikeid         +" PRIMARY KEY AUTOINCREMENT, "+
+                constantes.tablalikeid_mascota +" TEXT, "+
+                constantes.tablalikeNumero     +" INTEGER, "+
+
+                "FOREIGN KEY (" + constantes.tablalikeid_mascota  + ") " +
                 "REFERENCES " + constantes.tablaMascota  + "(" + constantes.tablaMascotaid  + ")" +
 
 
@@ -62,11 +64,11 @@ public class data extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS'"+constantes.tablaMascota+"'");
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS'"+constantes.tablaMascota+"'");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS'"+constantes.tablalike+"'");
         onCreate(sqLiteDatabase);
     }
 
-    public ArrayList<Mascota> obtenerContactos() {
+    public ArrayList<Mascota> obtenerMascotas() {
         mascotas = new ArrayList<>();
 
         String query="SELECT * FROM'"+constantes.tablaMascota+"'";
@@ -76,6 +78,7 @@ public class data extends SQLiteOpenHelper {
         while (registro.moveToNext()){
             Mascota mascotaActual=new Mascota();
 
+            //mascotaActual.setFoto();
             mascotaActual.setNombre(registro.getString(0));
             mascotaActual.setRate(registro.getString(1));
 
@@ -89,7 +92,7 @@ public class data extends SQLiteOpenHelper {
         return mascotas;
     }
 
-    public void insertarContacto(ContentValues contentValues){
+    public void insertarMascota(ContentValues contentValues){
         SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
         sqLiteDatabase.insert(constantes.dataName,null,contentValues);
         sqLiteDatabase.close();

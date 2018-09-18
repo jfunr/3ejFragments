@@ -17,21 +17,36 @@ public class Constructor {
 
     }
 
+    //*******************************************
+
+    //method to use the database
+
     public ArrayList<Mascota> getData(){
         data sqLiteDatabase=new data(context);
 
-        insertarContactos(sqLiteDatabase);
+        insertardosMascotas(sqLiteDatabase);
 
-        return sqLiteDatabase.obtenerContactos();
+        return sqLiteDatabase.obtenerMascotas();
     }
 
-    public void insertarContactos(data sqLiteDatabase){
+    //**********************************************
+
+    //method to fill the data with a couple of contacts
+
+    public void insertardosMascotas(data sqLiteDatabase){
 
         ContentValues contentValues=new ContentValues();
-        contentValues.put(constantes.tablaMacotaNombre,"perro1");
-        contentValues.put(constantes.tablaMascotaid,"1");
 
-        sqLiteDatabase.insertarContacto(contentValues);
+
+        contentValues.put(constantes.tablaMacotaNombre,"john");
+        contentValues.put(constantes.tablaMascotaFoto,R.drawable.perro1);
+
+        sqLiteDatabase.insertarMascota(contentValues);
+
+        contentValues.put(constantes.tablaMacotaNombre,"happy");
+        contentValues.put(constantes.tablaMascotaFoto,R.drawable.perro2);
+
+        sqLiteDatabase.insertarMascota(contentValues);
 
     }
 

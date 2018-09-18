@@ -1,6 +1,7 @@
 package com.jrubenfun.a3ejfragments.pojo;
 
 public class Mascota {
+    private int id;
     private int foto;
     private String nombre;
     private String rate;

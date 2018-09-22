@@ -79,8 +79,8 @@ public class data extends SQLiteOpenHelper {
                 Mascota mascotaActual = new Mascota();
 
                 //mascotaActual.setFoto();
-                mascotaActual.setNombre(registro.getString(0));
-                mascotaActual.setRate(registro.getString(1));
+                mascotaActual.setNombre(registro.getString(1));
+                mascotaActual.setRate(registro.getString(2));
 
                 mascotas.add(mascotaActual);
 

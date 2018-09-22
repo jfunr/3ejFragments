@@ -10,12 +10,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jrubenfun.a3ejfragments.mvp.ipresenter;
 import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
 import java.util.ArrayList;
 
-public class FragmentMain extends Fragment {
-
+public class FragmentMain extends Fragment implements ipresenter {
+//implements ipresenter
     ArrayList<Mascota> mascotas;
     RecyclerView listaMascotas;
     ArrayList<Mascota> topFiveMascotas;
@@ -29,11 +30,15 @@ public class FragmentMain extends Fragment {
 
         listaMascotas =  v.findViewById(R.id.rvListaMascotas);
 
+
+        //
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         listaMascotas.setLayoutManager(llm);
+        //
 
+        //to delete
         inicializarMascotas();
         inicializarAdaptador();
 
@@ -42,6 +47,7 @@ public class FragmentMain extends Fragment {
 
     }
 
+    //
     public void inicializarMascotas(){
         mascotas = new ArrayList<>();
 
@@ -53,9 +59,39 @@ public class FragmentMain extends Fragment {
         mascotas.add(new Mascota(R.drawable.perro6,"run","10"));
     }
 
+    //************************************************
+
+    //adaptador to generate the data-borrar mvp
+
     public void inicializarAdaptador(){
+        //
         MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
         listaMascotas.setAdapter(adaptador);
     }
 
+    //*************************************************
+
+    //
+
+    @Override
+    public void generarLinearLayout() {
+        /*
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+
+        listaMascotas.setLayoutManager(llm);
+        */
+    }
+
+    @Override
+    public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
+        //MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
+        //return adaptador;
+        return null;
+    }
+
+    @Override
+    public void iniciarAdaptadorRV(MascotaAdaptador adaptador) {
+        //listaMascotas.setAdapter(adaptador);
+    }
 }

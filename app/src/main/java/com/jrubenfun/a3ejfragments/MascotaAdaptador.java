@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
@@ -45,10 +46,15 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
                     rateInt = 0;
                 }
 
+
+                
                 tvRate.setText(Integer.toString(rateInt));
                 mascota.setRate(Integer.toString(rateInt));
             }
         });
+
+
+
 
     }
 
@@ -68,9 +74,9 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             super(itemView);
 
             imgMascota = itemView.findViewById(R.id.imgMascota);
-            tvNombre =   itemView.findViewById(R.id.tvNombre);
-            tvRate =  itemView.findViewById(R.id.tvRate);
-            imgButton=  itemView.findViewById(R.id.imgButton);
+            tvNombre   = itemView.findViewById(R.id.tvNombre);
+            tvRate     = itemView.findViewById(R.id.tvRate);
+            imgButton  = itemView.findViewById(R.id.imgButton);
         }
     }
 }

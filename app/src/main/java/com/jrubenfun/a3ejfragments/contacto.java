@@ -74,7 +74,7 @@ public class contacto extends AppCompatActivity {
 
     //****************************************************************
 
-    //este metodo genera el archivo
+    //este metodo genera el archivo .txt con FileIO
 
 
     public void generarArchivo(View view)

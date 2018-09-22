@@ -26,18 +26,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Mascota> mascotas;
-
-    ImageButton starButton;
-    int indices[] = new int[5];
-    ArrayList<Mascota> topFiveMascotas;
-    String[] topNombres = new String[5];
-    String[] topRates = new String[5];
-    int topFoto[] = new int[5];
 
     public Toolbar toolbar;
-    public TableLayout tableLayout;
-    public ViewPager viewPager;
 
 
     /**

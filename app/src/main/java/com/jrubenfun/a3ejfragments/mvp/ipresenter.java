@@ -5,10 +5,12 @@ import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
 import java.util.ArrayList;
 
+//interface associated with Fragment main
 public interface ipresenter {
-    public void generarLinearLayout();
+    public void obetenerMascotasBaseDatos();
 
-    public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas);
+    public void mostrarMascotaRV();
 
-    public void iniciarAdaptadorRV(MascotaAdaptador adaptador);
+
+
 }

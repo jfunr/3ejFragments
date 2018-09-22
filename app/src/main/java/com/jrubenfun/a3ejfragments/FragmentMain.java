@@ -11,15 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jrubenfun.a3ejfragments.mvp.ipresenter;
+import com.jrubenfun.a3ejfragments.mvp.rvFragmentPresenter;
 import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
 import java.util.ArrayList;
 
-public class FragmentMain extends Fragment implements ipresenter {
+public class FragmentMain extends Fragment implements iview {
 //implements ipresenter
     ArrayList<Mascota> mascotas;
     RecyclerView listaMascotas;
     ArrayList<Mascota> topFiveMascotas;
+
+    private rvFragmentPresenter presenter;
 
     @Nullable
     @Override
@@ -30,17 +33,19 @@ public class FragmentMain extends Fragment implements ipresenter {
 
         listaMascotas =  v.findViewById(R.id.rvListaMascotas);
 
+        presenter = new rvFragmentPresenter(this,getContext());
 
-        //
+        /*
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         listaMascotas.setLayoutManager(llm);
-        //
+        */
 
         //to delete
-        inicializarMascotas();
-        inicializarAdaptador();
+
+       // inicializarMascotas();
+       // inicializarAdaptador();
 
 
         return v;
@@ -75,23 +80,27 @@ public class FragmentMain extends Fragment implements ipresenter {
 
     @Override
     public void generarLinearLayout() {
-        /*
+        //
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         listaMascotas.setLayoutManager(llm);
-        */
+        //
     }
 
     @Override
     public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
-        //MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
-        //return adaptador;
-        return null;
+        //
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
+        return adaptador;
+        //return null;
     }
 
     @Override
     public void iniciarAdaptadorRV(MascotaAdaptador adaptador) {
-        //listaMascotas.setAdapter(adaptador);
+        //
+        listaMascotas.setAdapter(adaptador);
     }
+
+
 }

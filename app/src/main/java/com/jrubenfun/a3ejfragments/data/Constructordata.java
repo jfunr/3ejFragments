@@ -1,20 +1,38 @@
-package com.jrubenfun.a3ejfragments;
+package com.jrubenfun.a3ejfragments.data;
 
 import android.content.ContentValues;
 import android.content.Context;
 
-import com.jrubenfun.a3ejfragments.data.constantes;
-import com.jrubenfun.a3ejfragments.data.data;
+import com.jrubenfun.a3ejfragments.R;
 import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
 import java.util.ArrayList;
 
-public class Constructor {
+public class Constructordata {
 
-    private Context context;
-    public Constructor(Context context){
+    ArrayList<Mascota> mascotas;
+
+    public Context context;
+    public Constructordata(Context context){
         this.context=context;
 
+    }
+
+    //*******************************************
+
+    //method to get data from array
+
+    public ArrayList<Mascota> getArray(){
+        mascotas = new ArrayList<>();
+
+        mascotas.add(new Mascota(R.drawable.perro1,"john","31"));
+        mascotas.add(new Mascota(R.drawable.perro2,"happy","23"));
+        mascotas.add(new Mascota(R.drawable.perro3,"ears","20"));
+        mascotas.add(new Mascota(R.drawable.perro4,"furry","18"));
+        mascotas.add(new Mascota(R.drawable.perro5,"black","15"));
+        mascotas.add(new Mascota(R.drawable.perro6,"run","10"));
+
+        return mascotas;
     }
 
     //*******************************************
@@ -39,7 +57,7 @@ public class Constructor {
 
 
         contentValues.put(constantes.tablaMacotaNombre,"john");
-        contentValues.put(constantes.tablaMascotaFoto,R.drawable.perro1);
+        contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro1);
 
         sqLiteDatabase.insertarMascota(contentValues);
 

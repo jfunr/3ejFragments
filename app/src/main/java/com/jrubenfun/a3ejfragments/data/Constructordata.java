@@ -58,6 +58,7 @@ public class Constructordata {
 
         contentValues.put(constantes.tablaMacotaNombre,"john");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro1);
+       // contentValues.put(constantes.tablaMascotaid)
 
         sqLiteDatabase.insertarMascota(contentValues);
 

@@ -31,9 +31,10 @@ public class data extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
+        //query
         String tablaMascota="CREATE TABLE "+constantes.tablaMascota+
                 "("+
-                constantes.tablaMascotaid       +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
+                constantes.tablaMascotaid      +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 constantes.tablaMascotaFoto    +" TEXT, "+
 
                 constantes.tablaMacotaNombre    +" TEXT "+
@@ -45,7 +46,7 @@ public class data extends SQLiteOpenHelper {
 
         String tablaLikes="CREATE TABLE "+constantes.tablalike+
                 "("+
-                constantes.tablalikeid         +" PRIMARY KEY AUTOINCREMENT, "+
+                constantes.tablalikeid         +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 constantes.tablalikeid_mascota +" TEXT, "+
                 constantes.tablalikeNumero     +" INTEGER, "+
 
@@ -69,7 +70,8 @@ public class data extends SQLiteOpenHelper {
     }
 
     public ArrayList<Mascota> obtenerMascotas() {
-        mascotas = new ArrayList<>();
+       // mascotas = new ArrayList<>();
+        ArrayList<Mascota> mascotas=new ArrayList<>();
 
         String query="SELECT * FROM'"+constantes.tablaMascota+"'";
         try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
@@ -79,8 +81,10 @@ public class data extends SQLiteOpenHelper {
                 Mascota mascotaActual = new Mascota();
 
                 //mascotaActual.setFoto();
-                mascotaActual.setNombre(registro.getString(1));
-                mascotaActual.setRate(registro.getString(2));
+                mascotaActual.setId(registro.getInt(0));
+                mascotaActual.setNombre(registro.getString(2));
+                mascotaActual.setRate(registro.getString(3));
+                mascotaActual.setFoto(registro.getInt(1));
 
                 mascotas.add(mascotaActual);
 

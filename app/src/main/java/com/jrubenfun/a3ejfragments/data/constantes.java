@@ -1,5 +1,9 @@
 package com.jrubenfun.a3ejfragments.data;
 
+//**************************
+
+//constant values to include in the data
+
 public final class constantes {
     public static final String dataName = "mascotas.db";
     public static final int dataVersion = 1;

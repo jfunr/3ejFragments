@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Constructordata {
 
-    ArrayList<Mascota> mascotas;
+    public ArrayList<Mascota> mascotas;
 
     public Context context;
     public Constructordata(Context context){
@@ -51,14 +51,12 @@ public class Constructordata {
 
     //method to fill the data with a couple of contacts
 
-    public void insertardosMascotas(data sqLiteDatabase){
+    private void insertardosMascotas(data sqLiteDatabase){
 
         ContentValues contentValues=new ContentValues();
 
-
         contentValues.put(constantes.tablaMacotaNombre,"john");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro1);
-       // contentValues.put(constantes.tablaMascotaid)
 
         sqLiteDatabase.insertarMascota(contentValues);
 

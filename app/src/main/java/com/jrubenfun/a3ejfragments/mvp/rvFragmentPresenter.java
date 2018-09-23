@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class rvFragmentPresenter implements ipresenter {
 
     //ipresenter
-    public iview iview;
+    private iview iview;
     public Context context;
-    public Constructordata constructordata;
+    private Constructordata constructordata;
     private ArrayList<Mascota> mascotas;
 
     public rvFragmentPresenter(iview iview, Context context){
@@ -31,8 +31,10 @@ public class rvFragmentPresenter implements ipresenter {
     @Override
     public void obetenerMascotasBaseDatos() {
         constructordata=new Constructordata(context);
+
+        mascotas =constructordata.getData();
+
         mascotas =constructordata.getArray();
-        //constructordata.getData();
 
         mostrarMascotaRV();
 

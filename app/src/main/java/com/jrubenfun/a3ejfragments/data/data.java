@@ -64,8 +64,9 @@ public class data extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS'"+constantes.tablaMascota+"'");
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS'"+constantes.tablalike+"'");
+
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " +constantes.tablaMascota);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+constantes.tablalike);
         onCreate(sqLiteDatabase);
     }
 
@@ -73,18 +74,25 @@ public class data extends SQLiteOpenHelper {
        // mascotas = new ArrayList<>();
         ArrayList<Mascota> mascotas=new ArrayList<>();
 
-        String query="SELECT * FROM'"+constantes.tablaMascota+"'";
+
+
+        String query="SELECT * FROM "+constantes.tablaMascota;
+
+
         try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
             Cursor registro = sqLiteDatabase.rawQuery(query, null);
+
 
             while (registro.moveToNext()) {
                 Mascota mascotaActual = new Mascota();
 
                 //mascotaActual.setFoto();
-                mascotaActual.setId(registro.getInt(0));
+                //mascotaActual.setId(registro.getInt(0));
+
+                mascotaActual.setFoto(registro.getInt(1));
                 mascotaActual.setNombre(registro.getString(2));
                 mascotaActual.setRate(registro.getString(3));
-                mascotaActual.setFoto(registro.getInt(1));
+
 
                 mascotas.add(mascotaActual);
 
@@ -93,6 +101,7 @@ public class data extends SQLiteOpenHelper {
 
             sqLiteDatabase.close();
         }
+
 
         return mascotas;
     }

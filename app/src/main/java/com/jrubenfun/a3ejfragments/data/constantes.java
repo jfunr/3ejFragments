@@ -19,7 +19,7 @@ public final class constantes {
 
     public static final String tablalike = "mascota_likes";
     public static final String tablalikeid = "id";
-    public static final String tablalikeid_mascota = "id";
+    public static final String tablalikeid_mascota = "idm";
 
 
     public static final String tablalikeNumero = "numero_likes";

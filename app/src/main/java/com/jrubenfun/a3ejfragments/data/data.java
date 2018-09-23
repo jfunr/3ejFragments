@@ -65,8 +65,8 @@ public class data extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " +constantes.tablaMascota);
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+constantes.tablalike);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '" +constantes.tablaMascota+"'");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '"+constantes.tablalike+"'");
         onCreate(sqLiteDatabase);
     }
 
@@ -78,8 +78,10 @@ public class data extends SQLiteOpenHelper {
 
         String query="SELECT * FROM "+constantes.tablaMascota;
 
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
-        try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
+
+        //try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
             Cursor registro = sqLiteDatabase.rawQuery(query, null);
 
 
@@ -100,7 +102,7 @@ public class data extends SQLiteOpenHelper {
             }
 
             sqLiteDatabase.close();
-        }
+        //}
 
 
         return mascotas;

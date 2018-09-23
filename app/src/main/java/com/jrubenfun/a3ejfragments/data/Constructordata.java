@@ -55,16 +55,73 @@ public class Constructordata {
 
         ContentValues contentValues=new ContentValues();
 
+        //1
+
         contentValues.put(constantes.tablaMacotaNombre,"john");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro1);
 
         sqLiteDatabase.insertarMascota(contentValues);
+
+        //2
+
+        contentValues=new ContentValues();
 
         contentValues.put(constantes.tablaMacotaNombre,"happy");
         contentValues.put(constantes.tablaMascotaFoto,R.drawable.perro2);
 
         sqLiteDatabase.insertarMascota(contentValues);
 
+        //3
+
+        contentValues=new ContentValues();
+
+        contentValues.put(constantes.tablaMacotaNombre,"ears");
+        contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro3);
+
+        sqLiteDatabase.insertarMascota(contentValues);
+
+        //4
+
+        contentValues=new ContentValues();
+
+        contentValues.put(constantes.tablaMacotaNombre,"furry");
+        contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro4);
+
+        sqLiteDatabase.insertarMascota(contentValues);
+
+        //5
+
+        contentValues=new ContentValues();
+
+        contentValues.put(constantes.tablaMacotaNombre,"black");
+        contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro5);
+
+        sqLiteDatabase.insertarMascota(contentValues);
+
+        //6
+
+        contentValues=new ContentValues();
+
+        contentValues.put(constantes.tablaMacotaNombre,"run");
+        contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro6);
+
+        sqLiteDatabase.insertarMascota(contentValues);
+
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,6 @@
 package com.jrubenfun.a3ejfragments;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,15 +10,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jrubenfun.a3ejfragments.data.Constructordata;
 import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
 import java.util.ArrayList;
 
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
     public ArrayList<Mascota> mascotas;
+    Activity activity;
 
 
-    public MascotaAdaptador(ArrayList<Mascota> mascotas) {
+    public MascotaAdaptador(ArrayList<Mascota> mascotas,Activity activity) {
         this.mascotas = mascotas;
     }
 
@@ -37,7 +40,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView tvRate = (TextView) mascotaViewHolder.tvRate;
+                TextView tvRate = mascotaViewHolder.tvRate;
                 int rateInt = Integer.parseInt(tvRate.getText().toString());
 
                 rateInt++;
@@ -47,7 +50,9 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
                 }
 
 
-                
+
+              //  Constructordata
+
                 tvRate.setText(Integer.toString(rateInt));
                 mascota.setRate(Integer.toString(rateInt));
             }

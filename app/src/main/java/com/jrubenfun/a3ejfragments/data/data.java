@@ -114,6 +114,14 @@ public class data extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
+    public void insertarLike(ContentValues contentValues){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        sqLiteDatabase.insert(constantes.tablalike,null,contentValues);
+        sqLiteDatabase.close();
+
+
+    }
+
 }
 
 

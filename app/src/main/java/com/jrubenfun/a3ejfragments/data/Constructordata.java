@@ -2,6 +2,7 @@ package com.jrubenfun.a3ejfragments.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.provider.ContactsContract;
 
 import com.jrubenfun.a3ejfragments.R;
 import com.jrubenfun.a3ejfragments.pojo.Mascota;
@@ -9,6 +10,7 @@ import com.jrubenfun.a3ejfragments.pojo.Mascota;
 import java.util.ArrayList;
 
 public class Constructordata {
+    private static final int likes=1;
 
     public ArrayList<Mascota> mascotas;
 
@@ -109,15 +111,15 @@ public class Constructordata {
 
     }
 
+    public void darlike(Mascota mascota){
+        data db=new data(context);
+        ContentValues contentValues=new ContentValues();
+     //   ContentValues.put(constantes.tablalikeid_mascota,mascota.getId());
+     //   ContentValues.put(constantes.tablalikeNumero,likes);
+        db.insertarLike(contentValues);
+    }
+
 }
-
-
-
-
-
-
-
-
 
 
 

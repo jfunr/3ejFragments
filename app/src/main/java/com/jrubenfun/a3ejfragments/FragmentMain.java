@@ -70,7 +70,7 @@ public class FragmentMain extends Fragment implements iview {
 
     public void inicializarAdaptador(){
         //
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,getActivity());
         listaMascotas.setAdapter(adaptador);
     }
 
@@ -91,7 +91,7 @@ public class FragmentMain extends Fragment implements iview {
     @Override
     public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
         //
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,getActivity());
         return adaptador;
         //return null;
     }

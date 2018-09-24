@@ -67,7 +67,7 @@ public class FragmentGrid extends Fragment {
     }
 
     public void inicializarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,getActivity());
         listaMascotas.setAdapter(adaptador);
     }
 }

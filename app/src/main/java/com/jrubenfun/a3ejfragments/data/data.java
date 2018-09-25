@@ -95,6 +95,19 @@ public class data extends SQLiteOpenHelper {
                 mascotaActual.setNombre(registro.getString(2));
                 mascotaActual.setRate(registro.getString(3));
 
+                String queryLikes="SELECT COUNT("+")"+constantes.tablalikeNumero+") as likes"+
+                        " FROM " +constantes.tablalike+
+                        " WHERE " + constantes.tablalikeid_mascota+"="+mascotaActual.getId();
+
+                Cursor registrosLikes=sqLiteDatabase.rawQuery(queryLikes,null);
+                if(registrosLikes.moveToNext()){
+
+                    mascotaActual.setRate(registrosLikes.getString(0));
+
+                }
+                else{
+                    mascotaActual.setRate("0");
+                }
 
                 mascotas.add(mascotaActual);
 
@@ -120,6 +133,27 @@ public class data extends SQLiteOpenHelper {
         sqLiteDatabase.close();
 
 
+    }
+
+    public int obtenerLikes(Mascota mascota){
+        int likes=0;
+
+        String query="SELECT COUNT("+constantes.tablalikeNumero+")"+
+                " FROM "+constantes.tablalike+
+                " WHERE "+constantes.tablalikeid_mascota+"="+ mascota.getId();
+
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+
+        Cursor registros=sqLiteDatabase.rawQuery(query,null);
+
+        if (registros.moveToNext()){
+
+            likes=registros.getInt(0);
+        }
+
+        sqLiteDatabase.close();
+
+        return likes;
     }
 
 }

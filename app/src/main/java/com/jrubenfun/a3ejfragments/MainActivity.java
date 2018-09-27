@@ -184,12 +184,12 @@ public class MainActivity extends AppCompatActivity {
     public void inicializarMascotas(){
         mascotas = new ArrayList<>();
 
-        mascotas.add(new Mascota(R.drawable.perro1,"john","1"));
-        mascotas.add(new Mascota(R.drawable.perro2,"happy","1"));
-        mascotas.add(new Mascota(R.drawable.perro3,"ears","1"));
-        mascotas.add(new Mascota(R.drawable.perro4,"furry","1"));
-        mascotas.add(new Mascota(R.drawable.perro5,"black","1"));
-        mascotas.add(new Mascota(R.drawable.perro6,"run","1"));
+        mascotas.add(new Mascota(R.drawable.perro1,"john","31"));
+        mascotas.add(new Mascota(R.drawable.perro2,"happy","25"));
+        mascotas.add(new Mascota(R.drawable.perro3,"ears","19"));
+        mascotas.add(new Mascota(R.drawable.perro4,"furry","18"));
+        mascotas.add(new Mascota(R.drawable.perro5,"black","15"));
+        mascotas.add(new Mascota(R.drawable.perro6,"run","2"));
     }
 
     public void topCinco(int[] rates){

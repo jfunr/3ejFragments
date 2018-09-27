@@ -49,7 +49,7 @@ public class FragmentGrid extends Fragment {
 
 
         inicializarMascotas();
-        inicializarAdaptador();
+        inicializarAdaptador2();
 
     return v2;
 
@@ -66,8 +66,9 @@ public class FragmentGrid extends Fragment {
         mascotas.add(new Mascota(R.drawable.perro6,"run","1"));
     }
 
-    public void inicializarAdaptador(){
+    public void inicializarAdaptador2(){
         MascotaAdaptador adaptador = new MascotaAdaptador(mascotas,getActivity());
+        //MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, (View.OnClickListener) getActivity());
         listaMascotas.setAdapter(adaptador);
     }
 }

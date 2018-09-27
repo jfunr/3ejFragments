@@ -40,7 +40,12 @@
             android:theme="@style/AppTheme3"
             />
 
-        <activity android:name=".ListaMascotas">
+        <activity android:name=".ListaMascotas"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme3"
+            >
+
+
 
         </activity>
 

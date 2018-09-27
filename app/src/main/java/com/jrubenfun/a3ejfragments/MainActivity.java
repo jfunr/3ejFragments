@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -26,6 +27,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    ArrayList<Mascota> mascotas;
+    RecyclerView listaMascotas;
+    ImageButton starButton;
+    int indices[] = new int[5];
+    ArrayList<Mascota> topFiveMascotas;
+    String[] topNombres = new String[5];
+    String[] topRates = new String[5];
+    int topFoto[] = new int[5];
 
     public Toolbar toolbar;
 
@@ -67,13 +77,19 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab =  findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
+
+        /******************************************
+         *
+         */
+
+
 
     }
 
@@ -111,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
     /****************************************************************************
@@ -152,5 +169,73 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void crearTopFive(){
+        ArrayList<Mascota> topFiveMascotas = new ArrayList<Mascota>();
+
+        for (int i=0;i<indices.length;i++){
+
+            topFoto[i] = mascotas.get(indices[i]).getFoto();
+            topNombres[i]= mascotas.get(indices[i]).getNombre();
+            topRates[i]= mascotas.get(indices[i]).getRate();
+
+        }
+    }
+
+    public void inicializarMascotas(){
+        mascotas = new ArrayList<>();
+
+        mascotas.add(new Mascota(R.drawable.perro1,"john","1"));
+        mascotas.add(new Mascota(R.drawable.perro2,"happy","1"));
+        mascotas.add(new Mascota(R.drawable.perro3,"ears","1"));
+        mascotas.add(new Mascota(R.drawable.perro4,"furry","1"));
+        mascotas.add(new Mascota(R.drawable.perro5,"black","1"));
+        mascotas.add(new Mascota(R.drawable.perro6,"run","1"));
+    }
+
+    public void topCinco(int[] rates){
+
+        int i;
+        int max = 0;
+        int indiceAux;
+        for (int j=0; j<5; j++){
+            max = rates[0];
+            indiceAux = 0;
+            for (i =1; i<rates.length; i++){
+                if (max< rates[i]){
+                    max=rates[i];
+                    indiceAux=i;
+                }
+            }
+            indices[j]=indiceAux;
+            rates[indiceAux]=Integer.MIN_VALUE;
+        }
+    }
+
+
+    public void starButton(View view) {
+        inicializarMascotas();
+        starButton =  findViewById(R.id.starButton);
+        starButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int rates[] = new int[mascotas.size()];
+
+                for (int i=0; i<rates.length;i++){
+                    rates[i]=Integer.parseInt(mascotas.get(i).getRate());
+                }
+
+                topCinco(rates);
+                crearTopFive();
+
+                Intent intent = new Intent(MainActivity.this,ListaMascotas.class);
+                intent.putExtra("TopNombres",topNombres);
+                intent.putExtra("TopRates",  topRates);
+                intent.putExtra("TopFoto",   topFoto);
+                startActivity(intent);
+
+            }
+        });
+
+    }
 
 }

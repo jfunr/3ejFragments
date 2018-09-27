@@ -27,16 +27,24 @@
             app:titleTextColor="@color/colorAccent"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.AppBarOverlay"
+            app:titleMarginStart="10dp"
             app:title="@string/app_name"
             >
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/starButton"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_marginStart="200dp"
-                android:background="@android:drawable/toast_frame"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/contentdescriptionactionbar"
+                android:cropToPadding="false"
+                android:onClick="starButton"
                 android:src="@drawable/icon"
-                tools:ignore="ContentDescription" />
+                android:visibility="visible" />
+
 
 
 
@@ -85,7 +93,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
 
         />
 

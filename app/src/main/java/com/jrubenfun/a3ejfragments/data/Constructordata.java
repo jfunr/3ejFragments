@@ -60,7 +60,7 @@ public class Constructordata {
 
         //1
 
-        contentValues.put(constantes.tablaMacotaNombre, "john");
+        contentValues.put(constantes.tablaMascotaNombre, "john");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro1);
 
         sqLiteDatabase.insertarMascota(contentValues);
@@ -69,7 +69,7 @@ public class Constructordata {
 
         contentValues = new ContentValues();
 
-        contentValues.put(constantes.tablaMacotaNombre, "happy");
+        contentValues.put(constantes.tablaMascotaNombre, "happy");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro2);
 
         sqLiteDatabase.insertarMascota(contentValues);
@@ -78,7 +78,7 @@ public class Constructordata {
 
         contentValues = new ContentValues();
 
-        contentValues.put(constantes.tablaMacotaNombre, "ears");
+        contentValues.put(constantes.tablaMascotaNombre, "ears");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro3);
 
         sqLiteDatabase.insertarMascota(contentValues);
@@ -87,7 +87,7 @@ public class Constructordata {
 
         contentValues = new ContentValues();
 
-        contentValues.put(constantes.tablaMacotaNombre, "furry");
+        contentValues.put(constantes.tablaMascotaNombre, "furry");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro4);
 
         sqLiteDatabase.insertarMascota(contentValues);
@@ -96,7 +96,7 @@ public class Constructordata {
 
         contentValues = new ContentValues();
 
-        contentValues.put(constantes.tablaMacotaNombre, "black");
+        contentValues.put(constantes.tablaMascotaNombre, "black");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro5);
 
         sqLiteDatabase.insertarMascota(contentValues);
@@ -105,7 +105,7 @@ public class Constructordata {
 
         contentValues = new ContentValues();
 
-        contentValues.put(constantes.tablaMacotaNombre, "run");
+        contentValues.put(constantes.tablaMascotaNombre, "run");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro6);
 
         sqLiteDatabase.insertarMascota(contentValues);

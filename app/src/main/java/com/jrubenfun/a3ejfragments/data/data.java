@@ -35,9 +35,9 @@ public class data extends SQLiteOpenHelper {
         String tablaMascota="CREATE TABLE "+constantes.tablaMascota+
                 "("+
                 constantes.tablaMascotaid      +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                constantes.tablaMascotaFoto    +" TEXT, "+
+                constantes.tablaMascotaNombre    +" TEXT, "+
 
-                constantes.tablaMacotaNombre    +" TEXT "+
+                constantes.tablaMascotaFoto    +" TEXT "+
 
                 ")";
 
@@ -74,12 +74,9 @@ public class data extends SQLiteOpenHelper {
        // mascotas = new ArrayList<>();
         ArrayList<Mascota> mascotas=new ArrayList<>();
 
-
-
         String query="SELECT * FROM "+constantes.tablaMascota;
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-
 
         //try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
             Cursor registro = sqLiteDatabase.rawQuery(query, null);

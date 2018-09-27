@@ -40,9 +40,10 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TextView tvRate = mascotaViewHolder.tvRate;
+                //
+                TextView tvRate = mascotaViewHolder.tvRate;
 
-                /*
+
                 int rateInt = Integer.parseInt(tvRate.getText().toString());
 
                 rateInt++;
@@ -51,19 +52,16 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
                     rateInt = 0;
                 }
 
-                */
-
-                //tvRate.setText(Integer.toString(rateInt));
-                //mascota.setRate(Integer.toString(rateInt));
 
 
+                tvRate.setText(Integer.toString(rateInt));
+                mascota.setRate(Integer.toString(rateInt));
+
+                //
                 Constructordata constructordata=new Constructordata(activity);
                 constructordata.darlike(mascota);
 
                 mascotaViewHolder.tvRate.setText(constructordata.obtenerLikes(mascota));
-
-
-
 
 
 

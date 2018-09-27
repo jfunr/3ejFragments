@@ -44,9 +44,7 @@
                 android:onClick="starButton"
                 android:src="@drawable/icon"
                 android:visibility="visible" />
-
-
-
+            
 
         </android.support.v7.widget.Toolbar>
 

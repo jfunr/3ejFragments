@@ -37,11 +37,11 @@ public class FragmentGrid extends Fragment {
         //return super.onCreateView(inflater, container, savedInstanceState);
         View v2=inflater.inflate(R.layout.fragment_grid,container,false);
 
-        listaMascotas = v2.findViewById(R.id.rvListaMascotas);
+        listaMascotas = v2.findViewById(R.id.rvListaMascotasgrid);
 
         listaMascotas.setHasFixedSize(true);
 
-        int numberOfColumns = 3;
+        int numberOfColumns = 2;
 
         GridLayoutManager glm = new GridLayoutManager(getActivity(),numberOfColumns);
 

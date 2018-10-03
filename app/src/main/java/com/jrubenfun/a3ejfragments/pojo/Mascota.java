@@ -1,5 +1,9 @@
 package com.jrubenfun.a3ejfragments.pojo;
 
+//******************
+
+//pojo
+
 public class Mascota {
     private int id;
     private int foto;
@@ -21,6 +25,7 @@ public class Mascota {
         this.foto = foto;
     }
 
+
     public String getNombre() {
         return nombre;
     }
@@ -29,6 +34,7 @@ public class Mascota {
         this.nombre = nombre;
     }
 
+
     public String getRate() {
         return rate;
     }
@@ -36,6 +42,7 @@ public class Mascota {
     public void setRate(String rate) {
         this.rate = rate;
     }
+
 
     public Mascota(){}
 

@@ -11,13 +11,15 @@ import com.jrubenfun.a3ejfragments.pojo.Mascota;
 
 import java.util.ArrayList;
 
+import static com.jrubenfun.a3ejfragments.data.constantes.tablaMascota;
+
 public class data extends SQLiteOpenHelper {
     private Context context;
     private ArrayList<Mascota> mascotas;
 
     //*********************************
 
-    //constructor method that crate the db
+    //constructor method that create the db
 
     public data(Context context) {
         super(context, constantes.dataName, null, constantes.dataVersion);
@@ -32,7 +34,7 @@ public class data extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         //query
-        String tablaMascota="CREATE TABLE "+constantes.tablaMascota+
+        String queryTablaMascota="CREATE TABLE "+ tablaMascota+
                 "("+
                 constantes.tablaMascotaid      +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
                 constantes.tablaMascotaNombre    +" TEXT, "+
@@ -42,30 +44,31 @@ public class data extends SQLiteOpenHelper {
                 ")";
 
 
-        sqLiteDatabase.execSQL(tablaMascota);
+        sqLiteDatabase.execSQL(queryTablaMascota);
 
-        String tablaLikes="CREATE TABLE "+constantes.tablalike+
+        String queryTablaLikes="CREATE TABLE "+constantes.tablalike+
                 "("+
                 constantes.tablalikeid         +" INTEGER PRIMARY KEY AUTOINCREMENT, "+
-                constantes.tablalikeid_mascota +" TEXT, "+
+                constantes.tablalikeid_mascota +" INTEGER, "+
                 constantes.tablalikeNumero     +" INTEGER, "+
 
                 "FOREIGN KEY (" + constantes.tablalikeid_mascota  + ") " +
-                "REFERENCES " + constantes.tablaMascota  + "(" + constantes.tablaMascotaid  + ")" +
+
+                "REFERENCES " + tablaMascota  + "(" + constantes.tablaMascotaid  + ")" +
 
 
                 ")";
 
 
 
-        sqLiteDatabase.execSQL(tablaLikes);
+        sqLiteDatabase.execSQL(queryTablaLikes);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '" +constantes.tablaMascota+"'");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '" + tablaMascota+"'");
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS '"+constantes.tablalike+"'");
         onCreate(sqLiteDatabase);
     }
@@ -74,31 +77,30 @@ public class data extends SQLiteOpenHelper {
        // mascotas = new ArrayList<>();
         ArrayList<Mascota> mascotas=new ArrayList<>();
 
-        String query="SELECT * FROM "+constantes.tablaMascota;
+        String query="SELECT * FROM "+ tablaMascota;
 
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
 
         //try (SQLiteDatabase sqLiteDatabase = this.getWritableDatabase()) {
-            Cursor registro = sqLiteDatabase.rawQuery(query, null);
+        Cursor registro = sqLiteDatabase.rawQuery(query, null);
 
 
-            while (registro.moveToNext()) {
+        while (registro.moveToNext()) {
                 Mascota mascotaActual = new Mascota();
 
                 //mascotaActual.setFoto();
-                //mascotaActual.setId(registro.getInt(0));
+                mascotaActual.setId(registro.getInt(0));
 
                 mascotaActual.setFoto(registro.getInt(1));
                 mascotaActual.setNombre(registro.getString(2));
-                mascotaActual.setRate(registro.getString(3));
 
-                String queryLikes="SELECT COUNT("+")"+constantes.tablalikeNumero+") as likes"+
+                String queryLikes="SELECT COUNT("+constantes.tablalikeNumero+") as likes"+
                         " FROM " +constantes.tablalike+
                         " WHERE " + constantes.tablalikeid_mascota+"="+mascotaActual.getId();
 
                 Cursor registrosLikes=sqLiteDatabase.rawQuery(queryLikes,null);
                 if(registrosLikes.moveToNext()){
-
+//rev
                     mascotaActual.setRate(registrosLikes.getString(0));
 
                 }
@@ -111,7 +113,7 @@ public class data extends SQLiteOpenHelper {
 
             }
 
-            sqLiteDatabase.close();
+        sqLiteDatabase.close();
         //}
 
 
@@ -120,17 +122,16 @@ public class data extends SQLiteOpenHelper {
 
     public void insertarMascota(ContentValues contentValues){
         SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
-        sqLiteDatabase.insert(constantes.dataName,null,contentValues);
+        sqLiteDatabase.insert(constantes.tablaMascota,null,contentValues);
         sqLiteDatabase.close();
     }
+
 
     public void insertarLike(ContentValues contentValues){
         SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
         sqLiteDatabase.insert(constantes.tablalike,null,contentValues);
         sqLiteDatabase.close();
-
-
-    }
+     }
 
     public int obtenerLikes(Mascota mascota){
         int likes=0;

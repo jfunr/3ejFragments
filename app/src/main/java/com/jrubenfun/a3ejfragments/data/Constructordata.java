@@ -60,8 +60,9 @@ public class Constructordata {
 
         //1
 
-        contentValues.put(constantes.tablaMascotaNombre, "john");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro1);
+        contentValues.put(constantes.tablaMascotaNombre, "john");
+
 
         sqLiteDatabase.insertarMascota(contentValues);
 
@@ -69,17 +70,20 @@ public class Constructordata {
 
         contentValues = new ContentValues();
 
-        contentValues.put(constantes.tablaMascotaNombre, "happy");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro2);
+        contentValues.put(constantes.tablaMascotaNombre, "happy");
+
 
         sqLiteDatabase.insertarMascota(contentValues);
+
 
         //3
 
         contentValues = new ContentValues();
 
-        contentValues.put(constantes.tablaMascotaNombre, "ears");
         contentValues.put(constantes.tablaMascotaFoto, R.drawable.perro3);
+        contentValues.put(constantes.tablaMascotaNombre, "ears");
+
 
         sqLiteDatabase.insertarMascota(contentValues);
 
@@ -110,6 +114,7 @@ public class Constructordata {
 
         sqLiteDatabase.insertarMascota(contentValues);
 
+
     }
 
     public void darlike(Mascota mascota) {
@@ -128,6 +133,13 @@ public class Constructordata {
 
 
 }
+
+
+
+
+
+
+
 
 
 

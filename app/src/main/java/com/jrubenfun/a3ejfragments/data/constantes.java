@@ -10,8 +10,9 @@ public final class constantes {
 
     public static final String tablaMascota          = "mascota";
     public static final String tablaMascotaid        = "id";
-    public static final String tablaMascotaFoto      = "foto";
     public static final String tablaMascotaNombre     = "nombre";
+    public static final String tablaMascotaFoto      = "foto";
+
 
 
     //********************************************************
@@ -26,3 +27,23 @@ public final class constantes {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

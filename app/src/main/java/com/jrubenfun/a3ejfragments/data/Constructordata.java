@@ -117,7 +117,7 @@ public class Constructordata {
 
     }
 
-    public void darlike(Mascota mascota) {
+    public void darLike(Mascota mascota) {
         data db = new data(context);
         ContentValues contentValues = new ContentValues();
         contentValues.put(constantes.tablalikeid_mascota, mascota.getId());

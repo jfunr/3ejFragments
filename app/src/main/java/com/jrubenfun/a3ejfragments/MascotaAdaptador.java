@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder> {
     public ArrayList<Mascota> mascotas;
     Activity activity;
+    private static final int likes = 1;
 
 
     public MascotaAdaptador(ArrayList<Mascota> mascotas,Activity activity) {
@@ -33,6 +34,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     @Override
     public void onBindViewHolder(final MascotaViewHolder mascotaViewHolder, int position) {
         final Mascota mascota = mascotas.get(position);
+
         mascotaViewHolder.imgMascota.setImageResource(mascota.getFoto());
         mascotaViewHolder.tvNombre.setText(mascota.getNombre());
         mascotaViewHolder.tvRate.setText(mascota.getRate());
@@ -40,29 +42,26 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         mascotaViewHolder.imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
-                TextView tvRate = mascotaViewHolder.tvRate;
 
+
+                TextView tvRate = mascotaViewHolder.tvRate;
 
                 int rateInt = Integer.parseInt(tvRate.getText().toString());
 
                 rateInt++;
 
-                if (rateInt == 8) {
-                    rateInt = 0;
-                }
-
-
 
                 tvRate.setText(Integer.toString(rateInt));
                 mascota.setRate(Integer.toString(rateInt));
 
-                //
+
+
+                /*
                 Constructordata constructordata=new Constructordata(activity);
-                constructordata.darlike(mascota);
+                constructordata.darLike(mascota);
 
                 mascotaViewHolder.tvRate.setText(constructordata.obtenerLikes(mascota));
-
+                */
 
 
             }

@@ -36,7 +36,8 @@
                 android:background="@android:color/background_light"
                 android:padding="10dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/hueso" />
+                android:src="@drawable/hueso"
+                />
 
             <TextView
                 android:id="@+id/tvNombre"
